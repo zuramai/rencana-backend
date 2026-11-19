@@ -15,6 +15,13 @@
       "when": 1795088477168,
       "tag": "0001_regular_mimic",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795094315266,
+      "tag": "0002_marvelous_centennial",
+      "breakpoints": true
     }
   ]
 }

@@ -58,6 +58,8 @@ export const plans = pgTable('plans', {
   endMonth: smallint('end_month'),
   budgetCurrency: currency('budget_currency').notNull(),
   budgetAmount: money('budget_amount'),
+  /** IANA zone of the destination; itinerary wall-clock times are exported to calendars in it. */
+  timeZone: text('time_zone'),
   createdAt: createdAt(),
   updatedAt: updatedAt()
 }, t => [

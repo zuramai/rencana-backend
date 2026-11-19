@@ -15,3 +15,21 @@ export const optionalText = (max: number) =>
 export const optionalUrl = httpUrl.or(z.literal('')).nullish().transform(v => (v ? v : null))
 
 export const localeCode = z.enum(['en', 'id'])
+
+function isTimeZone(value: string): boolean {
+  try {
+    new Intl.DateTimeFormat('en', { timeZone: value })
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * IANA time zone name ("Asia/Tokyo", "UTC"). Empty string or null clear it; omitted stays undefined,
+ * so updates from clients that don't know the field leave the stored value alone.
+ */
+export const timeZoneName = z.string().trim().max(64)
+  .refine(v => v === '' || (/^[A-Za-z][A-Za-z0-9_+-]*(\/[A-Za-z0-9_+-]+)*$/.test(v) && isTimeZone(v)), 'invalid_time_zone')
+  .transform(v => (v ? v : null))
+  .nullable().optional()

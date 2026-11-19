@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { COVER_COLORS } from '../utils/item-types.ts'
-import { currencyCode, decimalString } from './common.ts'
+import { currencyCode, decimalString, timeZoneName } from './common.ts'
 
 const year = z.number().int().min(1900).max(2200)
 const month = z.number().int().min(1).max(12)
@@ -17,7 +17,9 @@ export const planInput = z.object({
   endYear: year.nullable(),
   endMonth: month.nullable(),
   budgetCurrency: currencyCode,
-  budgetAmount: decimalString.nullable()
+  budgetAmount: decimalString.nullable(),
+  /** Destination time zone for calendar exports; null = viewer's own zone, omitted = unchanged on edit. */
+  timeZone: timeZoneName
 }).superRefine((p, ctx) => {
   if (p.coverType === 'emoji' && !p.coverEmoji) ctx.addIssue({ code: 'custom', path: ['coverEmoji'], message: 'required' })
   if (p.startMonth != null && p.startYear == null) ctx.addIssue({ code: 'custom', path: ['startYear'], message: 'required' })

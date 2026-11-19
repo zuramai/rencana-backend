@@ -2,9 +2,10 @@ import { Hono } from 'hono'
 import { httpError } from '../http/errors.ts'
 import { exportContext, slugify } from '../lib/export-context.ts'
 import { loadPlanBudget } from '../lib/fx.ts'
+import { buildItineraryIcs } from '../lib/ics.ts'
 import { buildItineraryPdf } from '../lib/pdf-itinerary.ts'
 import { buildTicketsPdf } from '../lib/pdf-tickets.ts'
-import { requirePlan } from '../lib/plans.ts'
+import { loadItems, requirePlan } from '../lib/plans.ts'
 import { loadTickets } from '../lib/tickets.ts'
 import { buildItineraryXlsx } from '../lib/xlsx-itinerary.ts'
 import type { AppEnv } from '../types.ts'
@@ -35,6 +36,10 @@ exportsRoutes.get('/:id/export/:kind', async (c) => {
     if (tickets.length === 0) throw httpError(404, 'no_tickets')
     body = await buildTicketsPdf(ctx, tickets)
     filename = `${slug}-tickets.pdf`
+  } else if (kind === 'calendar-ics') {
+    body = Buffer.from(buildItineraryIcs(ctx, await loadItems(plan.id)), 'utf8')
+    contentType = 'text/calendar; charset=utf-8'
+    filename = `${slug}-itinerary.ics`
   } else {
     throw httpError(404, 'not_found')
   }

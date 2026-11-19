@@ -51,7 +51,8 @@ plansRoutes.post('/', async (c) => {
     endYear: data.endYear,
     endMonth: data.endMonth,
     budgetCurrency: data.budgetCurrency,
-    budgetAmount: data.budgetAmount
+    budgetAmount: data.budgetAmount,
+    timeZone: data.timeZone
   }).returning({ id: plans.id })
   return c.json({ id: row!.id })
 })
@@ -87,6 +88,7 @@ plansRoutes.patch('/:id', async (c) => {
       endMonth: data.endMonth,
       budgetCurrency: data.budgetCurrency,
       budgetAmount: data.budgetAmount,
+      timeZone: data.timeZone,
       updatedAt: sql`now()`
     }).where(eq(plans.id, plan.id))
     // Rates are stored relative to the budget currency.

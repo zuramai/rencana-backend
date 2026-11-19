@@ -1,11 +1,11 @@
 import { Hono } from 'hono'
-import { and, asc, eq, sql } from 'drizzle-orm'
+import { and, eq, sql } from 'drizzle-orm'
 import { itemInput } from '#shared/schemas/item'
 import { db } from '../db/client.ts'
 import { itineraryItems } from '../db/schema.ts'
 import { readMultipart } from '../http/multipart.ts'
 import { itemDto } from '../lib/dto.ts'
-import { findItem, requirePlan, touchPlan } from '../lib/plans.ts'
+import { findItem, loadItems, requirePlan, touchPlan } from '../lib/plans.ts'
 import { deleteFileRows, saveUpload } from '../lib/uploads.ts'
 import type { AppEnv } from '../types.ts'
 
@@ -13,9 +13,7 @@ export const itemsRoutes = new Hono<AppEnv>()
 
 itemsRoutes.get('/:id/items', async (c) => {
   const plan = await requirePlan(c.get('user').id, c.req.param('id'))
-  const rows = await db.select().from(itineraryItems).where(eq(itineraryItems.planId, plan.id))
-    .orderBy(asc(itineraryItems.startsAt), asc(itineraryItems.createdAt))
-  return c.json(rows.map(itemDto))
+  return c.json(await loadItems(plan.id))
 })
 
 itemsRoutes.post('/:id/items', async (c) => {
