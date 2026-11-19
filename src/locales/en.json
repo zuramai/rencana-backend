@@ -1,0 +1,75 @@
+{
+  "pdf": {
+    "itinerary": "Itinerary",
+    "time": "Time",
+    "type": "Type",
+    "description": "Description",
+    "price": "Price",
+    "otherCosts": "Other expected costs",
+    "name": "Name",
+    "frequency": "Frequency",
+    "amount": "Amount",
+    "days": "Days",
+    "total": "Total",
+    "converted": "In {currency}",
+    "summary": "Budget summary",
+    "itineraryTotal": "Itinerary total",
+    "otherCostsTotal": "Other costs",
+    "grandTotal": "Total planned",
+    "expectedBudget": "Expected budget",
+    "remaining": "Remaining",
+    "over": "Over budget",
+    "missingRates": "Not included (no exchange rate): {currencies}",
+    "rates": "Exchange rates",
+    "currency": "Currency",
+    "rate": "Rate",
+    "source": "Source",
+    "fetchedAt": "Updated",
+    "date": "Date",
+    "start": "Start",
+    "end": "End",
+    "allDay": "All day",
+    "note": "Note",
+    "link": "Link",
+    "priceIn": "Price in {currency}",
+    "totalIn": "Total in {currency}",
+    "page": "Rencana · page {current} / {total}",
+    "pdfNotIncluded": "Attached PDF could not be included: {name}",
+    "location": "Location",
+    "yes": "Yes",
+    "no": "No",
+    "noItems": "No activities yet."
+  },
+  "itemTypes": {
+    "attraction": "Attraction",
+    "transportation": "Transport",
+    "food_beverage": "Food & drink",
+    "accommodation": "Stay",
+    "activity": "Activity",
+    "shopping": "Shopping",
+    "event": "Event",
+    "other": "Other"
+  },
+  "ticketKinds": {
+    "flight": "Flight",
+    "train": "Train",
+    "bus": "Bus",
+    "ferry": "Ferry",
+    "attraction": "Attraction",
+    "event": "Event",
+    "accommodation": "Stay",
+    "other": "Other"
+  },
+  "itinerary": {
+    "day": "Day {n}"
+  },
+  "costs": {
+    "daily": "Daily",
+    "oneTime": "One-time"
+  },
+  "rates": {
+    "line": "1 {from} = {rate} {to}",
+    "auto": "auto",
+    "manual": "manual"
+  }
+}

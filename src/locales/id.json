@@ -1,0 +1,75 @@
+{
+  "pdf": {
+    "itinerary": "Itinerary",
+    "time": "Waktu",
+    "type": "Jenis",
+    "description": "Deskripsi",
+    "price": "Harga",
+    "otherCosts": "Perkiraan biaya lain",
+    "name": "Nama",
+    "frequency": "Frekuensi",
+    "amount": "Jumlah",
+    "days": "Hari",
+    "total": "Total",
+    "converted": "Dalam {currency}",
+    "summary": "Ringkasan anggaran",
+    "itineraryTotal": "Total itinerary",
+    "otherCostsTotal": "Biaya lain",
+    "grandTotal": "Total direncanakan",
+    "expectedBudget": "Perkiraan anggaran",
+    "remaining": "Sisa",
+    "over": "Melebihi anggaran",
+    "missingRates": "Tidak dihitung (belum ada kurs): {currencies}",
+    "rates": "Kurs",
+    "currency": "Mata uang",
+    "rate": "Kurs",
+    "source": "Sumber",
+    "fetchedAt": "Diperbarui",
+    "date": "Tanggal",
+    "start": "Mulai",
+    "end": "Selesai",
+    "allDay": "Seharian",
+    "note": "Catatan",
+    "link": "Tautan",
+    "priceIn": "Harga dalam {currency}",
+    "totalIn": "Total dalam {currency}",
+    "page": "Rencana · halaman {current} / {total}",
+    "pdfNotIncluded": "PDF terlampir tidak dapat disertakan: {name}",
+    "location": "Lokasi",
+    "yes": "Ya",
+    "no": "Tidak",
+    "noItems": "Belum ada aktivitas."
+  },
+  "itemTypes": {
+    "attraction": "Atraksi",
+    "transportation": "Transportasi",
+    "food_beverage": "Makan & minum",
+    "accommodation": "Penginapan",
+    "activity": "Aktivitas",
+    "shopping": "Belanja",
+    "event": "Acara",
+    "other": "Lainnya"
+  },
+  "ticketKinds": {
+    "flight": "Pesawat",
+    "train": "Kereta",
+    "bus": "Bus",
+    "ferry": "Kapal",
+    "attraction": "Atraksi",
+    "event": "Acara",
+    "accommodation": "Penginapan",
+    "other": "Lainnya"
+  },
+  "itinerary": {
+    "day": "Hari {n}"
+  },
+  "costs": {
+    "daily": "Harian",
+    "oneTime": "Sekali bayar"
+  },
+  "rates": {
+    "line": "1 {from} = {rate} {to}",
+    "auto": "otomatis",
+    "manual": "manual"
+  }
+}
